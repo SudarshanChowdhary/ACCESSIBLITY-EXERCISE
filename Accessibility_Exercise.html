@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<title>Accessibility Exercise</title>
-	<!-- <link rel="stylesheet" href="style.css"> -->
-	<style type="text/css">
-		.center{
-	margin: auto;
-	position: absolute;
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <title>Accessibility Exercise</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style type="text/css">
+    .center{
+  margin: auto;
+  position: absolute;
     left: 0;
     right: 0;
     width:30%;
     height:auto;
 }
 .header{
-	background-color: #ccc;
-	height: 50px;
-	top: 0;
-	bottom:0;
-	text-decoration: underline;
-	padding-left: 25px;
+  background-color: #ccc;
+  height: 50px;
+  top: 0;
+  bottom:0;
+  text-decoration: underline;
+  padding-left: 25px;
 
 }
 .test-page{
-	display: inline-flex;
-	margin-top: 7px;
+  display: inline-flex;
+  margin-top: 7px;
 }
 .menu-bar{
-	display: inline-block;
-	float: right;
-	margin-top: 7px;
-	padding-right: 9px;
+  display: inline-block;
+  float: right;
+  margin-top: 7px;
+  padding-right: 9px;
     padding-top: 5px;
 }
 ul {
@@ -64,23 +64,23 @@ li a {
     text-decoration: none;
 }
 .account-form, .registeration, .footer-section{
-	padding:0 15px 0 10px;
+  padding:0 15px 0 10px;
 }
 .parsonal-details, .registered-user{
-	background-color: #ccc;
-	padding-left: 10px;
+  background-color: #ccc;
+  padding-left: 10px;
 
 }
 .title{
-	display: block;
-	padding-top: 15px;
+  display: block;
+  padding-top: 15px;
 }
 .select{
-	width: 100px;
-	border-radius: 3px;
+  width: 100px;
+  border-radius: 3px;
 }
 .label-first-name, .label-surname, .label-gender{
-	display: block;
+  display: block;
 }
 .input-first-name, .input-surname{width: 100%;
 border-radius: 3px;
@@ -90,13 +90,13 @@ padding: 0;
  }
  .date-of-birth{
 display: block;
-	padding-top: 15px;
+  padding-top: 15px;
 
 }
 
 .gender-female, .gender-male{
-	width: 100px;
-	border-radius: 3px;
+  width: 100px;
+  border-radius: 3px;
 
 }
 .clearfix{
@@ -109,15 +109,15 @@ display: block;
 }
 
 .form-submit{
-	float: right;
-	border: none;
-	color: blue;
-	cursor: pointer;
-	display: block;
-	background: none;
+  float: right;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  display: block;
+  background: none;
 }
 .table-gird{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 table, td {
     border: 1px solid black;
@@ -133,12 +133,12 @@ th {
     text-align: center;
 }
 .footer-section{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 .dividing-line{
-	border-bottom: 1px solid black;
-	padding-bottom: 20px;
-	
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  
 }
 
 .hide-show-details{
@@ -146,17 +146,50 @@ float: right;
 border: none;
 }
 .details-of-registered-user{
-	word-break: break-word;
+  word-break: break-word;
 }
 footer{
-	text-align: center;
+  text-align: center;
     padding-top: 20px;
-    padding-bottom: 20px;}	
-	</style>
-	<script>
-	var flip = 0;
+    padding-bottom: 20px;}  
+  </style>
+  <script>  
+var select = document.getElementById("date");
+var days = ["1","2","3","4","5","6","7","8","9","10","11","12","13",
+  "14","15","16","17","18","19","20","21","22","23","24","25","26","27",
+        "28","29","30","31"];
+for(var i = 0; i < days.length; i++) {
+    var opt = days[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+}
+
+var select = document.getElementById("month");
+var months = ["January", "February", "March", "April", "May", "June", "July", "August",
+        "September", "October", "November", "December"];
+for(var i = 0; i < months.length; i++) {
+    var opt = months[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+}
+var select = document.getElementById("year");
+var years = ["2011", "2012", "2013","2014","2015",
+        "2016", "2017", "2018", "2019", "2020","2021"];
+for(var i = 0; i < years.length; i++) {
+    var opt = years[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+}
+
+  var flip = 0;
     $("#HideDetails").click(function(){
-    	alert("hi");
+      alert("hi");
         $(".details-of-registered-user").toggle(flip++ % 2 === 0);
     });
     </script>
@@ -171,16 +204,16 @@ footer{
   <li><a href="#Registration">Registration</a></li>
   <li><a href="#contact">Contact</a></li> 
 </ul>
-</div>	
+</div>  
 </header><!-- /header -->
 <section class="account-form">
 <h2>Open an account</h2>
 <div class="parsonal-details">
-<strong>Your personal details</strong>	
+<strong>Your personal details</strong>  
 </div>
 
 <form action="" method="" accept-charset="utf-8">
-	
+  
 
 <label class="title" for="select">Title</label>
     <select class="select" id="select">
@@ -196,35 +229,32 @@ footer{
 
     <label class="date-of-birth" for="date">Date of Birth</label>
     <select class="date select" id="date">
-        <option>DD</option>
-        <option>Miss</option>
-    </select>
+    <option>DD</option>
+  </select>
     <select class="month select" id="month">
         <option>MMM</option>
-        <option>Miss</option>
     </select>
     <select class="year select" id="year">
         <option>YYYY</option>
-        <option>Miss</option>
     </select>
     <label class="label-gender" for="">Gender</label>
     <input class="gender-male" type="button" value="Male">
     <input class="gender-female" type="button" value="Female">
 <span class="clearfix"></span>
 <button class="form-submit" type="submit">Submit</button>
-	</form>
+  </form>
 </section>
 
 <section class="registeration">
 <span class="clearfix"></span>
 
 <div class="registered-user">
-	<strong>Registered Users</strong>
+  <strong>Registered Users</strong>
 </div>
-	
-	<table class="table-gird">
+  
+  <table class="table-gird">
   <tr>
-  	<th>Title</th>
+    <th>Title</th>
     <th>Firstname</th>
     <th>Surname</th>
     <th>Date of Birth</th>
@@ -254,32 +284,32 @@ footer{
   
 </table>
 <div class="dividing-line"></div>
-</section>	
+</section>  
 
 <section class="footer-section">
 
 
 <select class="hide-show-details" name="">
-	<option id="HideDetails" value="hide details">hide details</option>
-	<option id="ShowDetails" value="show details">show details</option>
+  <option id="HideDetails" value="hide details">hide details</option>
+  <option id="ShowDetails" value="show details">show details</option>
 </select>
 
 <span class="clearfix"></span>
 <strong>Registered User Details</strong>
 <p class="details-of-registered-user" style="display: none">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 
 </p>
 <p style="display: none">Good Bye</p>
 
 <div class="dividing-line"></div>
-	
+  
 </section>
 
 <footer>
 <span>Test Page 2015</span>
-	
+  
 </footer>
 
 </body>
