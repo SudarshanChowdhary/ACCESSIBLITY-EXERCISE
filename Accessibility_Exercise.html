@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<title>Accessibility Exercise</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<style type="text/css">
+		.center{
+	margin: auto;
+	position: absolute;
+    left: 0;
+    right: 0;
+    width:30%;
+    height:auto;
+}
+.header{
+	background-color: #ccc;
+	height: 50px;
+	top: 0;
+	bottom:0;
+	text-decoration: underline;
+	padding-left: 25px;
+
+}
+.test-page{
+	display: inline-flex;
+	margin-top: 7px;
+}
+.menu-bar{
+	display: inline-block;
+	float: right;
+	margin-top: 7px;
+	padding-right: 9px;
+    padding-top: 5px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+   
+}
+
+li {
+    float: left;
+    padding: 1px;
+
+    list-style: none;
+    border-right: 1px solid black;
+    margin: 0 1px;
+}
+li:last-child {
+    border: none;
+}
+li a {
+    display: inline-block;
+    color: #111;
+    text-align: center;
+
+    
+    text-decoration: none;
+}
+.account-form, .registeration, .footer-section{
+	padding:0 15px 0 10px;
+}
+.parsonal-details, .registered-user{
+	background-color: #ccc;
+	padding-left: 10px;
+
+}
+.title{
+	display: block;
+	padding-top: 15px;
+}
+.select{
+	width: 100px;
+	border-radius: 3px;
+}
+.label-first-name, .label-surname, .label-gender{
+	display: block;
+}
+.input-first-name, .input-surname{width: 100%;
+border-radius: 3px;
+box-shadow: none;
+padding: 0;
+
+ }
+ .date-of-birth{
+display: block;
+	padding-top: 15px;
+
+}
+
+.gender-female, .gender-male{
+	width: 100px;
+	border-radius: 3px;
+
+}
+.clearfix{
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.form-submit{
+	float: right;
+	border: none;
+	color: blue;
+	cursor: pointer;
+	display: block;
+	background: none;
+}
+.table-gird{
+	margin-top: 20px;
+}
+table, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: center;
+}
+.footer-section{
+	margin-top: 20px;
+}
+.dividing-line{
+	border-bottom: 1px solid black;
+	padding-bottom: 20px;
+	
+}
+
+.hide-show-details{
+float: right;
+border: none;
+}
+.details-of-registered-user{
+	word-break: break-word;
+}
+footer{
+	text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;}	
+	</style>
+	<script>
+	var flip = 0;
+    $("#HideDetails").click(function(){
+    	alert("hi");
+        $(".details-of-registered-user").toggle(flip++ % 2 === 0);
+    });
+    </script>
+
+</head>
+<body class="center">
+<header id="header" class="header">
+<h2 class="test-page">Test Page</h2>
+<div class="menu-bar">
+<ul>
+  <li><a href="#About">About</a></li>
+  <li><a href="#Registration">Registration</a></li>
+  <li><a href="#contact">Contact</a></li> 
+</ul>
+</div>	
+</header><!-- /header -->
+<section class="account-form">
+<h2>Open an account</h2>
+<div class="parsonal-details">
+<strong>Your personal details</strong>	
+</div>
+
+<form action="" method="" accept-charset="utf-8">
+	
+
+<label class="title" for="select">Title</label>
+    <select class="select" id="select">
+        <option>Mr</option>
+        <option>Miss</option>
+    </select>
+
+    <label class="label-first-name" for="FirstName">Firstname:</label>
+    <input class="input-first-name" name="FirstName" id="FirstName" type="text" required="! Please enter your Firstname" />
+
+    <label class="label-surname" for="SurName">Surname:</label>
+    <input class="input-surname" name="SurName" id="SurName" type="text" required="! Please enter your surname" />
+
+    <label class="date-of-birth" for="date">Date of Birth</label>
+    <select class="date select" id="date">
+        <option>DD</option>
+        <option>Miss</option>
+    </select>
+    <select class="month select" id="month">
+        <option>MMM</option>
+        <option>Miss</option>
+    </select>
+    <select class="year select" id="year">
+        <option>YYYY</option>
+        <option>Miss</option>
+    </select>
+    <label class="label-gender" for="">Gender</label>
+    <input class="gender-male" type="button" value="Male">
+    <input class="gender-female" type="button" value="Female">
+<span class="clearfix"></span>
+<button class="form-submit" type="submit">Submit</button>
+	</form>
+</section>
+
+<section class="registeration">
+<span class="clearfix"></span>
+
+<div class="registered-user">
+	<strong>Registered Users</strong>
+</div>
+	
+	<table class="table-gird">
+  <tr>
+  	<th>Title</th>
+    <th>Firstname</th>
+    <th>Surname</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+  </tr>
+  <tr>
+    <td>Mr</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+  <tr>
+  <td>Mr</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+  <tr>
+  <td>Mr</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+  
+</table>
+<div class="dividing-line"></div>
+</section>	
+
+<section class="footer-section">
+
+
+<select class="hide-show-details" name="">
+	<option id="HideDetails" value="hide details">hide details</option>
+	<option id="ShowDetails" value="show details">show details</option>
+</select>
+
+<span class="clearfix"></span>
+<strong>Registered User Details</strong>
+<p class="details-of-registered-user" style="display: none">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+</p>
+<p style="display: none">Good Bye</p>
+
+<div class="dividing-line"></div>
+	
+</section>
+
+<footer>
+<span>Test Page 2015</span>
+	
+</footer>
+
+</body>
+</html>
