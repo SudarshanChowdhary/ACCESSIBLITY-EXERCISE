@@ -1,316 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <title>Accessibility Exercise</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <style type="text/css">
-    .center{
-  margin: auto;
-  position: absolute;
-    left: 0;
-    right: 0;
-    width:30%;
-    height:auto;
-}
-.header{
-  background-color: #ccc;
-  height: 50px;
-  top: 0;
-  bottom:0;
-  text-decoration: underline;
-  padding-left: 25px;
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<title>Accessibility Exercise</title>
 
-}
-.test-page{
-  display: inline-flex;
-  margin-top: 7px;
-}
-.menu-bar{
-  display: inline-block;
-  float: right;
-  margin-top: 7px;
-  padding-right: 9px;
-    padding-top: 5px;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: inline-block;
-   
-}
+	<style type="text/css">
+		body {
+			background-color: #C0C0C0;
+		}
+		header {
+			background-color: #F4F3F1;
+			padding-bottom: 10px;
+			width: 480px;
+			margin: auto;
+			padding: 10px 10px;
+		}
+		.logo {
+			display: inline-block;
+			font-weight: bold;
+			font-size: 1.4em;
+			text-decoration: underline;
+			padding-left: 10px;
 
-li {
-    float: left;
-    padding: 1px;
+		}
+		.menu {
+			display: inline-block;
+			float: right;
+			margin-top: 5px;
 
-    list-style: none;
-    border-right: 1px solid black;
-    margin: 0 1px;
-}
-li:last-child {
-    border: none;
-}
-li a {
-    display: inline-block;
-    color: #111;
-    text-align: center;
+		}
+		.menu span {
+			border-right: 1px solid black;
+		}
+		.menu span a {
+			text-decoration: none;
+			color: #000;
+			padding: 5px;
+		}
+		.menu span:last-child {
+			border-right: none;
+		}
+		main {
+			margin: auto;
+			background: #fff;
+			padding: 10px;
+			width: 480px;
+		}
+		.subheading {
+			background-color: #F4F3F1;
+			font-size: 1em;
+			padding: 5px 10px;
+			border-radius: 2px;
+		}
+		.title {
+			width: 100px;
+		}
+		.open-account-form label {
+			display: block;
+		}
+		.open-account-form input {
+			display: block;
+			border-radius: 3px;
+			width: 96%;
+			margin: 5px 0 10px 0;
+			padding: 5px;
+		}
+		.open-account-form select {
+			border-radius: 3px;
+			margin: 5px 0 10px 0;
+			padding: 5px;
+		}
+		.open-account-form button {
+			padding: 5px;
+			margin: 5px 0;
+		}
 
-    
-    text-decoration: none;
-}
-.account-form, .registeration, .footer-section{
-  padding:0 15px 0 10px;
-}
-.parsonal-details, .registered-user{
-  background-color: #ccc;
-  padding-left: 10px;
+		.no-border{
+			border:none;
+			padding-top: 0px;
+		}
 
-}
-.title{
-  display: block;
-  padding-top: 15px;
-}
-.select{
-  width: 100px;
-  border-radius: 3px;
-}
-.label-first-name, .label-surname, .label-gender{
-  display: block;
-}
-.input-first-name, .input-surname{width: 100%;
-border-radius: 3px;
-box-shadow: none;
-padding: 0;
-
- }
- .date-of-birth{
-display: block;
-  padding-top: 15px;
-
-}
-
-.gender-female, .gender-male{
-  width: 100px;
-  border-radius: 3px;
-
-}
-.clearfix{
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-
-.form-submit{
-  float: right;
-  border: none;
-  color: blue;
-  cursor: pointer;
-  display: block;
-  background: none;
-}
-.table-gird{
-  margin-top: 20px;
-}
-table, td {
-    border: 1px solid black;
-    text-align: center;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    text-align: center;
-}
-.footer-section{
-  margin-top: 20px;
-}
-.dividing-line{
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
-  
-}
-
-.hide-show-details{
-float: right;
-border: none;
-}
-.details-of-registered-user{
-  word-break: break-word;
-}
-footer{
-  text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;}  
-  </style>
-  <script>  
-var select = document.getElementById("date");
-var days = ["1","2","3","4","5","6","7","8","9","10","11","12","13",
-  "14","15","16","17","18","19","20","21","22","23","24","25","26","27",
-        "28","29","30","31"];
-for(var i = 0; i < days.length; i++) {
-    var opt = days[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
-
-var select = document.getElementById("month");
-var months = ["January", "February", "March", "April", "May", "June", "July", "August",
-        "September", "October", "November", "December"];
-for(var i = 0; i < months.length; i++) {
-    var opt = months[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
-var select = document.getElementById("year");
-var years = ["2011", "2012", "2013","2014","2015",
-        "2016", "2017", "2018", "2019", "2020","2021"];
-for(var i = 0; i < years.length; i++) {
-    var opt = years[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
-
-  var flip = 0;
-    $("#HideDetails").click(function(){
-      alert("hi");
-        $(".details-of-registered-user").toggle(flip++ % 2 === 0);
-    });
-    </script>
-
+		button.link-btn {
+			float: right;
+			border: none;
+			color: blue;
+			cursor: pointer;
+			background: none;
+			margin: 0;
+		}
+		.tbl-caption {
+			background-color: #eee;
+			font-size: 1em;
+			padding: 5px 10px;
+			border-radius: 2px;
+			margin-bottom: 20px;
+			text-align: left;
+			font-weight: bold;
+		}
+		table.grid {
+			margin: 20px 0;
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid black;
+			table-layout: fixed;
+		}
+		td {
+			border: 1px solid black;
+			text-align: center;
+		}
+		footer {
+			text-align: center;
+			padding: 20px 0;
+		}
+		.clearfix {
+			width: 100%;
+			height: 0px !important;
+			visibility: hidden;
+			display: block;
+			clear: both;
+			content: ""
+		}
+		[aria-invalid=true] {
+		  border: red thin solid;
+		}
+	</style>
 </head>
-<body class="center">
-<header id="header" class="header">
-<h2 class="test-page">Test Page</h2>
-<div class="menu-bar">
-<ul>
-  <li><a href="#About">About</a></li>
-  <li><a href="#Registration">Registration</a></li>
-  <li><a href="#contact">Contact</a></li> 
-</ul>
-</div>  
-</header><!-- /header -->
-<section class="account-form">
-<h2>Open an account</h2>
-<div class="parsonal-details">
-<strong>Your personal details</strong>  
-</div>
 
-<form action="" method="" accept-charset="utf-8">
-  
+<body>
+	<header aria-labelledby="logo" role="presentation">
+		<div class="logo" id="logo">Test page</div>
+		<nav class="menu" role="navigation" aria-label="Main menu">
+				<span role="link"><a href="#About" alt="About" tabindex="0">About</a></span>
+				<span role="link"><a href="#Registration" alt="Registration" tabindex="0">Registration</a></span>
+				<span role="link"><a href="#contact" target="_blank" alt="Contact" tabindex="0">Contact</a></span>
+			</ul>
+		</nav>
+		<div class="clearfix"></div>
+	</header>
+	<main role="main">
+		<section role="account form">
+			<h1 role="heading" aria-level="1">Open an account</h1>
+			<h2 role="heading" aria-level="2" class="subheading">Your personal details</h2>
+			<form class="open-account-form" name="openAccount" role="form" error>
+				<label for="title" title="Title">Title</label>
+				<select id="title" class="title" tabindex="1" aria-labelledby = "title" aria-required="true">
+        <option>Mr.</option>
+        <option>Miss.</option>
+    	</select>
+				<label for="FirstName" title="First Name">First name</label>
+				<input name="FirstName" id="FirstName" type="text" tabindex="2" focus aria-labelledby = "First Name" aria-live="assertive" aria-invalid="true" placeholder="Enter First Name" required="! Please enter your Firstname" />
 
-<label class="title" for="select">Title</label>
-    <select class="select" id="select">
-        <option>Mr</option>
-        <option>Miss</option>
+				<label for="Surname" title="Surname">Surname</label>
+				<input name="Surname" id="Surname" type="text" tabindex="3" aria-labelledby = "Surname" aria-required="true" aria-live="assertive" placeholder="Enter Surname" required="! Please enter your surname" />
+
+				<fieldset class="no-border">
+					<legend title="Date of Birth" aria-labelledby = "Date of Birth">Date of Birth</legend>
+
+					<select class="select" id="date" title="Date" tabindex="4" aria-labelledby = "Date">
+        <option selected="selected" value="null">DD</option>
+        <option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+    	</select>
+					<select class="select" id="month" title="Month" tabindex="5" aria-labelledby = "Month">
+        <option selected="selected" value="null">MMM</option>
+        <option value="January">January</option>
+						<option value="Febuary">Febuary</option>
+						<option value="March">March</option>
+						<option value="April">April</option>
+						<option value="May">May</option>
+						<option value="June">June</option>
+						<option value="July">July</option>
+						<option value="August">August</option>
+						<option value="September">September</option>
+						<option value="October">October</option>
+						<option value="November">November</option>
+						<option value="December">December</option>
     </select>
-
-    <label class="label-first-name" for="FirstName">Firstname:</label>
-    <input class="input-first-name" name="FirstName" id="FirstName" type="text" required="! Please enter your Firstname" />
-
-    <label class="label-surname" for="SurName">Surname:</label>
-    <input class="input-surname" name="SurName" id="SurName" type="text" required="! Please enter your surname" />
-
-    <label class="date-of-birth" for="date">Date of Birth</label>
-    <select class="date select" id="date">
-    <option>DD</option>
-  </select>
-    <select class="month select" id="month">
-        <option>MMM</option>
+					<select class="select" id="year" title="Year" tabindex="6" aria-labelledby = "Year">
+        <option selected="selected" value="null">YYYY</option>
+        				<option value="2017">2017</option>
+        				<option value="2016">2016</option>
+						<option value="2015">2015</option>
+						<option value="2014">2014</option>
+						<option value="2013">2013</option>
+						<option value="2012">2012</option>
+						<option value="2011">2011</option>
+						<option value="2010">2010</option>
+						<option value="2009">2009</option>
+						<option value="2008">2008</option>
+						<option value="2007">2007</option>
+						<option value="2006">2006</option>
+						<option value="2005">2005</option>
+						<option value="2004">2004</option>
+						<option value="2003">2003</option>
+						<option value="2002">2002</option>
+						<option value="2001">2001</option>
+						<option value="2000">2000</option>
+						<option value="1999">1999</option>
+						<option value="1998">1998</option>
+						<option value="1997">1997</option>
+						<option value="1996">1996</option>
     </select>
-    <select class="year select" id="year">
-        <option>YYYY</option>
-    </select>
-    <label class="label-gender" for="">Gender</label>
-    <input class="gender-male" type="button" value="Male">
-    <input class="gender-female" type="button" value="Female">
-<span class="clearfix"></span>
-<button class="form-submit" type="submit">Submit</button>
-  </form>
-</section>
+				</fieldset>
+				<fieldset class="no-border" aria-labelledby = "Gender">
+					<legend title="Gender">Gender</legend>
+					<button id="male" value="male" type="button" tabindex="7" aria-labelledby = "Male" aria-describedBy = "gender">Male</button>
+					<button id="female" value="female" type="button" tabindex="8" aria-labelledby = "Female" aria-describedBy = "gender">Female</button>
+				</fieldset>
+				<button class="link-btn" type="submit" tabindex="9">Submit</button>
+			</form>
+		</section>
+		<div class="clearfix"></div>
+		<section>
+			<table class="grid" summary="Registered users" aria-readonly="true" role="grid" aria-labelledby = "Registered Users" tabindex = "0" frame="box">
+				<caption class="tbl-caption" tabindex="10">Registered Users</caption>
+				<thead>
+					<tr role="row">
+						<th role="columnheader">Title</th>
+						<th role="columnheader">First name</th>
+						<th role="columnheader">Surname</th>
+						<th role="columnheader">DOB</th>
+						<th role="columnheader">Gender</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr role="row">
+						<td role="gridcell">Mr</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+					</tr>
+					<tr>
+						<td role="gridcell">Mrs</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+					</tr>
+					<tr>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+						<td role="gridcell">test</td>
+					</tr>
+				</tbody>
+			</table>
 
-<section class="registeration">
-<span class="clearfix"></span>
+		</section>
+		<hr role="separator"></hr>
+		<section class="registered-users">
+			<div>
+				<button class="link-btn" id="hideShowDetails">
+				<span id="show" style="display:none">Show Detials <i>&#x2193;</i></span>
+				<span id="hide" style="display:block">Hide Detials <i>&#x2191;</i></span>
+			</button>
+			</div>
+			<div class="clearfix"></div>
+			<div tabindex="-1" id="registeredUserDetails" aria-hidden="true">
+				<h3 role="heading" aria-level="2">Registered User Details</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</p>
+			</div>
+		</section>
 
-<div class="registered-user">
-  <strong>Registered Users</strong>
-</div>
-  
-  <table class="table-gird">
-  <tr>
-    <th>Title</th>
-    <th>Firstname</th>
-    <th>Surname</th>
-    <th>Date of Birth</th>
-    <th>Gender</th>
-  </tr>
-  <tr>
-    <td>Mr</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-  </tr>
-  <tr>
-  <td>Mr</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-  </tr>
-  <tr>
-  <td>Mr</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
-  </tr>
-  
-</table>
-<div class="dividing-line"></div>
-</section>  
+		<script>
+			$("#hideShowDetails").click(function() {
+				$("#hide").toggle();
+				$("#registeredUserDetails").toggle();
+				$("#show").toggle();
+			});
+		</script>
 
-<section class="footer-section">
-
-
-<select class="hide-show-details" name="">
-  <option id="HideDetails" value="hide details">hide details</option>
-  <option id="ShowDetails" value="show details">show details</option>
-</select>
-
-<span class="clearfix"></span>
-<strong>Registered User Details</strong>
-<p class="details-of-registered-user" style="display: none">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
-</p>
-<p style="display: none">Good Bye</p>
-
-<div class="dividing-line"></div>
-  
-</section>
-
-<footer>
-<span>Test Page 2015</span>
-  
-</footer>
-
+		<hr role="separator"></hr>
+		<footer role="contentinfo">
+			<div>Test Page 2015</div>
+		</footer>
+	</main>
 </body>
+
 </html>
